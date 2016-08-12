@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="app">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script type="text/javascript" src="js/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body ng-controller="loginController">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">Start</div>
+      <div class="panel-body">
+<style>
+	 input.ng-invalid { background-color: lightpink;}
+	 input.ng-valid { background-color: lightgreen;}
+       </style>
+	<ul class='panel panel-primary nav nav-pills nav-justified'>
+	    <li role="presentation" ng-class="{active: isSelectedTab(0)}"><a href='' ng-click="setTab(0)">Logowanie</a></li>
+    	    <li role="presentation" ng-class="{active: isSelectedTab(1)}"><a href='' ng-click="setTab(1)">Rejestracja</a></li>
+	<form name="loginForm" ng-show='isSelectedTab(0)' novalidate>
+	  <table class="table">
+	    <tr>
+	        <td>Login:</td><td><input type="text" name="login" ng-model="login" required/><span style='color:red' ng-show='loginForm.login.$error.required'>Podaj login</span></td>
+	        <td>Hasło:</td><td><input type="password" name="pass" ng-model="pass" required/><span style='color:red' ng-show='loginForm.pass.$error.required'>Podaj hasło</span></td>
+	    </tr>
+	    <tfooter>
+		<td colspan="3"><span style='color:red' ng-show='incorrectLogin'>Niepoprawne hasło lub login</span></td>
+		<td><a href="#" class="btn btn-xs btn-primary pull-right" ng-click="loginUser()" ng-disabled="loginForm.$error.required" type="button">login</a></td>
+	    </tfooter>
+	  </table>
+	</form>
+	<form name="registerForm" novalidate ng-show='isSelectedTab(1)'>
+          <table class="table">
+            <tr>
+                <td>Login:</td><td><input type="text" name="login" ng-model="login2" required/><span style='color:red' ng-show='registerForm.login.$error.required'>Podaj login</span></td>
+                <td>Hasło:</td><td><input type="password" name="pass" ng-model="pass2" required/><span style='color:red' ng-show='registerForm.pass.$error.required'>Podaj hasło</span></td>
+            </tr>
+	    <tfooter>
+		<td colspan="3"></td>
+		<td><a href="#" class="btn btn-xs btn-primary pull-right" ng-click="signUpUser()" ng-disabled="registerForm.$error.required" type="button">zarejestruj</a></td>
+	    </tfooter>
+          </table>
+	</form>
+        </ul>
+      </div>
+    </div>
+        </div>
+        <div class="col-md-2"></div>
+    </body>
+</html>

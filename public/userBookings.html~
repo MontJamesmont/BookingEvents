@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="app">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+    	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="bookedController">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">Twoje zamowione bilety</div>
+      <div class="panel-body">
+
+        <table border="1" class="table">
+        <thead>
+          <tr class="success">
+            <th>Nazwa wydarzenia</th>
+            <th>data</th>
+	    <th>miejsce</th>
+	    <th>cena</th>
+	    <th>ilosc</th>
+	    <th>koszt</th>
+          </tr>
+        </thead>
+    <!-- column data -->
+        <tr ng-repeat="prod in products" class="info">
+	<td>{{prod.name}} </td>
+	<td>{{prod.date}} </td>
+	<td>{{prod.miejsce}} </td>
+	<td>{{prod.cena}} </td>
+	<td>{{prod.count}}</td>
+	<td>{{prod.sum}}</td>
+    	</tr>
+</table>    
+      </div>
+    </div>
+        </div>
+        <div class="col-md-2"></div>
+    </body>
+</html>
